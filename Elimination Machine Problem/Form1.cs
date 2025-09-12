@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Elimination_Machine_Problem
 {
@@ -258,6 +259,36 @@ namespace Elimination_Machine_Problem
             // Add RHS
             eq += $" = {c}";
             return eq;
+        }
+
+        private void txtB1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbEliminate_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnClear_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSolve_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
