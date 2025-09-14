@@ -88,7 +88,7 @@ namespace Elimination_Machine_Problem
                     A1 = a1 * factor1; B1 = b1 * factor1; C1 = c1 * factor1;
                     A2 = a2 * factor2; B2 = b2 * factor2; C2 = c2 * factor2;
 
-                    rtbSteps.AppendText($"Step 2: Multiply first equation by {factor1} and second by {factor2}\n");
+                    rtbSteps.AppendText($"Step 2: Multiply the first equation by {factor1} and the second by {factor2}\n");
                     rtbSteps.AppendText(FormatEquation(A1, B1, C1, x1s, x2s) + "\n");
                     rtbSteps.AppendText(FormatEquation(A2, B2, C2, x1s, x2s) + "\n\n");
 
@@ -117,13 +117,47 @@ namespace Elimination_Machine_Problem
                     rtbSteps.AppendText($"Step 4: Solve for {x2s}\n");
                     rtbSteps.AppendText($"{x2s} = {constant} ÷ {coeffX2} = {x2:F3}\n\n");
 
-                    // Substitute back to find x₁
-                    double x1 = (c1 - b1 * x2) / a1;
-                    rtbSteps.AppendText($"Step 5: Substitute {x2s} = {x2:F3} into first equation\n");
-                    rtbSteps.AppendText(FormatEquation(a1, b1, c1, x1s, x2s) + "\n");
-                    rtbSteps.AppendText($"{a1}{x1s} + {b1}({x2:F3}) = {c1}\n");
-                    rtbSteps.AppendText($"{a1}{x1s} = {c1} - {b1 * x2:F3}\n");
-                    rtbSteps.AppendText($"{x1s} = {(c1 - b1 * x2):F3} ÷ {a1} = {x1:F3}\n\n");
+                    // Eliminate x2
+                    factor1 = MyAbs(b2);
+                    factor2 = MyAbs(b1);
+
+                    // Make sure we eliminate properly by using opposite signs
+                    if ((b1 > 0 && b2 > 0) || (b1 < 0 && b2 < 0))
+                    {
+                        factor2 = -factor2;
+                    }
+
+                    A1 = a1 * factor1; B1 = b1 * factor1; C1 = c1 * factor1;
+                    A2 = a2 * factor2; B2 = b2 * factor2; C2 = c2 * factor2;
+
+                    rtbSteps.AppendText($"Step 5: Rewrite the original equation again, then multiply the first equation by {factor1} and the second by {factor2}\n");
+                    rtbSteps.AppendText(FormatEquation(A1, B1, C1, x1s, x2s) + "\n");
+                    rtbSteps.AppendText(FormatEquation(A2, B2, C2, x1s, x2s) + "\n\n");
+
+                    // Add equations to eliminate x₂
+                    double coeffX1 = A1 + A2;
+                    double constant1 = C1 + C2;
+
+                    rtbSteps.AppendText("Step 6: Add equations to eliminate " + x2s + "\n");
+                    if (coeffX1 == 1)
+                        rtbSteps.AppendText($"{x1s} = {constant1}\n\n");
+                    else if (coeffX1 == -1)
+                        rtbSteps.AppendText($"-{x1s} = {constant1}\n\n");
+                    else
+                        rtbSteps.AppendText($"{coeffX1}{x1s} = {constant1}\n\n");
+
+                    if (coeffX1 == 0)
+                    {
+                        if (constant == 0)
+                            lblResult.Text = "Infinite solutions (dependent system).";
+                        else
+                            lblResult.Text = "No solution (inconsistent system).";
+                        return;
+                    }
+
+                    double x1 = constant1 / coeffX1;
+                    rtbSteps.AppendText($"Step 7: Solve for {x1s}\n");
+                    rtbSteps.AppendText($"{x1s} = {constant1} ÷ {coeffX1} = {x1:F3}\n\n");
 
                     lblResult.Text = $"Solution: {x1s} = {x1:F3}, {x2s} = {x2:F3}";
                 }
@@ -148,7 +182,7 @@ namespace Elimination_Machine_Problem
                     A1 = a1 * factor1; B1 = b1 * factor1; C1 = c1 * factor1;
                     A2 = a2 * factor2; B2 = b2 * factor2; C2 = c2 * factor2;
 
-                    rtbSteps.AppendText($"Step 2: Multiply first equation by {factor1} and second by {factor2}\n");
+                    rtbSteps.AppendText($"Step 2: Multiply the first equation by {factor1} and the second by {factor2}\n");
                     rtbSteps.AppendText(FormatEquation(A1, B1, C1, x1s, x2s) + "\n");
                     rtbSteps.AppendText(FormatEquation(A2, B2, C2, x1s, x2s) + "\n\n");
 
@@ -178,12 +212,46 @@ namespace Elimination_Machine_Problem
                     rtbSteps.AppendText($"{x1s} = {constant} ÷ {coeffX1} = {x1:F3}\n\n");
 
                     // Substitute back to find x₂
-                    double x2 = (c1 - a1 * x1) / b1;
-                    rtbSteps.AppendText($"Step 5: Substitute {x1s} = {x1:F3} into first equation\n");
-                    rtbSteps.AppendText(FormatEquation(a1, b1, c1, x1s, x2s) + "\n");
-                    rtbSteps.AppendText($"{a1}({x1:F3}) + {b1}{x2s} = {c1}\n");
-                    rtbSteps.AppendText($"{b1}{x2s} = {c1} - {a1 * x1:F3}\n");
-                    rtbSteps.AppendText($"{x2s} = {(c1 - a1 * x1):F3} ÷ {b1} = {x2:F3}\n\n");
+                    factor1 = MyAbs(a2);
+                    factor2 = MyAbs(a1);
+
+                    // Make sure we eliminate properly by using opposite signs
+                    if ((a1 > 0 && a2 > 0) || (a1 < 0 && a2 < 0))
+                    {
+                        factor2 = -factor2;
+                    }
+
+                    A1 = a1 * factor1; B1 = b1 * factor1; C1 = c1 * factor1;
+                    A2 = a2 * factor2; B2 = b2 * factor2; C2 = c2 * factor2;
+
+                    rtbSteps.AppendText($"Step 5: Rewrite the original equation again, then multiply the first equation by {factor1} and the second by {factor2}\n");
+                    rtbSteps.AppendText(FormatEquation(A1, B1, C1, x1s, x2s) + "\n");
+                    rtbSteps.AppendText(FormatEquation(A2, B2, C2, x1s, x2s) + "\n\n");
+
+                    // Add equations to eliminate x₁
+                    double coeffX2 = B1 + B2;
+                    double constant2 = C1 + C2;
+
+                    rtbSteps.AppendText("Step 6: Add equations to eliminate " + x1s + "\n");
+                    if (coeffX2 == 1)
+                        rtbSteps.AppendText($"{x2s} = {constant2}\n\n");
+                    else if (coeffX2 == -1)
+                        rtbSteps.AppendText($"-{x2s} = {constant2}\n\n");
+                    else
+                        rtbSteps.AppendText($"{coeffX2}{x2s} = {constant2}\n\n");
+
+                    if (coeffX2 == 0)
+                    {
+                        if (constant == 0)
+                            lblResult.Text = "Infinite solutions (dependent system).";
+                        else
+                            lblResult.Text = "No solution (inconsistent system).";
+                        return;
+                    }
+
+                    double x2 = constant2 / coeffX2;
+                    rtbSteps.AppendText($"Step 7: Solve for {x2s}\n");
+                    rtbSteps.AppendText($"{x2s} = {constant} ÷ {coeffX2} = {x2:F3}\n\n");
 
                     lblResult.Text = $"Solution: {x1s} = {x1:F3}, {x2s} = {x2:F3}";
                 }
