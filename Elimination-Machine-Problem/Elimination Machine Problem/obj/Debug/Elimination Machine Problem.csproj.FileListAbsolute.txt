@@ -28,3 +28,13 @@ J:\Misc\signignment\COLLEGE ASSIGNMENTS\codes\Elimination-Machine-Problem\Elimin
 J:\Misc\signignment\COLLEGE ASSIGNMENTS\codes\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination Machine Problem.csproj.CoreCompileInputs.cache
 J:\Misc\signignment\COLLEGE ASSIGNMENTS\codes\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination Machine Problem.exe
 J:\Misc\signignment\COLLEGE ASSIGNMENTS\codes\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination Machine Problem.pdb
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\bin\Debug\Elimination Machine Problem.exe.config
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\bin\Debug\Elimination Machine Problem.exe
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\bin\Debug\Elimination Machine Problem.pdb
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination Machine Problem.csproj.AssemblyReference.cache
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination_Machine_Problem.Form1.resources
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination_Machine_Problem.Properties.Resources.resources
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination Machine Problem.csproj.GenerateResource.cache
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination Machine Problem.csproj.CoreCompileInputs.cache
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination Machine Problem.exe
+C:\Users\Patrick\OneDrive\Desktop\tt2\Elimination-Machine-Problem\Elimination Machine Problem\obj\Debug\Elimination Machine Problem.pdb
